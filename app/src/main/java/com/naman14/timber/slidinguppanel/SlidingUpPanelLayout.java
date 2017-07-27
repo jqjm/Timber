@@ -28,75 +28,92 @@ public class SlidingUpPanelLayout extends ViewGroup {
 
     /**
      * Default peeking out panel height
+     * 默认显示面板高度
      */
     private static final int DEFAULT_PANEL_HEIGHT = 68; // dp;
 
     /**
      * Default anchor point height
+     * 默认的锚点的高度
      */
     private static final float DEFAULT_ANCHOR_POINT = 1.0f; // In relative %
     /**
      * Default height of the shadow above the peeking out panel
+     * 在面板上方的阴影的默认高度
      */
     private static final int DEFAULT_SHADOW_HEIGHT = 4; // dp;
     /**
      * If no fade color is given by default it will fade to 80% gray.
+     * 如果默认颜色不褪色，它将褪色到80%灰色。
      */
     private static final int DEFAULT_FADE_COLOR = 0x99000000;
     /**
      * Whether we should hook up the drag view clickable state
+     * 我们是否应该把拖拽视图连接起来
      */
     private static final boolean DEFAULT_DRAG_VIEW_CLICKABLE = true;
     /**
      * Default Minimum velocity that will be detected as a fling
+     * 默认的最小速度，将被检测为一种浪费
      */
     private static final int DEFAULT_MIN_FLING_VELOCITY = 400; // dips per second
     /**
      * Default is set to false because that is how it was written
+     * 默认设置为false，因为它是这样写的
      */
     private static final boolean DEFAULT_OVERLAY_FLAG = false;
     /**
      * Default attributes for layout
+     * 布局的默认属性
      */
     private static final int[] DEFAULT_ATTRS = new int[]{
             android.R.attr.gravity
     };
     /**
      * Default paralax length of the main view
+     * 主视图的默认paralax长度
      */
     private static final int DEFAULT_PARALAX_OFFSET = 0;
     /**
      * Default slide panel offset when collapsed
+     * 默认滑动面板在崩溃时偏移
      */
     private static final int DEFAULT_SLIDE_PANEL_OFFSET = 0;
     /**
      * Default direct offset flag
+     * 默认直接标志偏移量
      */
     private static final boolean DEFAULT_DIRECT_OFFSET_FLAG = false;
     /**
      * Default initial state for the component
+     * 组件的默认初始状态
      */
     private static SlideState DEFAULT_SLIDE_STATE = SlideState.COLLAPSED;
     /**
      * The paint used to dim the main layout when sliding
+     * 这种油漆在滑动时用来调暗主要的布局
      */
     private final Paint mCoveredFadePaint = new Paint();
     /**
      * Drawable used to draw the shadow between panes.
+     * 用来画出窗格之间的阴影。
      */
     private final Drawable mShadowDrawable;
     private final ViewDragHelper mDragHelper;
     private final Rect mTmpRect = new Rect();
     /**
      * Minimum velocity that will be detected as a fling
+     * 最小速度，将被检测为一种行为
      */
     private int mMinFlingVelocity = DEFAULT_MIN_FLING_VELOCITY;
     /**
      * The fade color used for the panel covered by the slider. 0 = no fading.
+     * 滑块覆盖的面板使用的褪色颜色。0 =没有消退。
      */
     private int mCoveredFadeColor = DEFAULT_FADE_COLOR;
     /**
      * The size of the overhang in pixels.
+     * 超挂在像素上的大小。
      */
     private int mPanelHeight = -1;
     /**

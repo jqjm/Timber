@@ -94,7 +94,7 @@ import de.Maxr1998.trackselectorlib.TrackItem;
 
 @SuppressLint("NewApi")
 public class MusicService extends Service {
-    public static final String PLAYSTATE_CHANGED = "com.naman14.timber.playstatechanged";
+    public static final String PLAYSTATE_CHANGED = "com.naman14.timber.playstatechanged";//播放状态改变
     public static final String POSITION_CHANGED = "com.naman14.timber.positionchanged";
     public static final String META_CHANGED = "com.naman14.timber.metachanged";
     public static final String QUEUE_CHANGED = "com.naman14.timber.queuechanged";
@@ -127,12 +127,12 @@ public class MusicService extends Service {
     public static final String UPDATE_PREFERENCES = "updatepreferences";
     public static final int NEXT = 2;
     public static final int LAST = 3;
-    public static final int SHUFFLE_NONE = 0;
-    public static final int SHUFFLE_NORMAL = 1;
-    public static final int SHUFFLE_AUTO = 2;
-    public static final int REPEAT_NONE = 0;
-    public static final int REPEAT_CURRENT = 1;
-    public static final int REPEAT_ALL = 2;
+    public static final int SHUFFLE_NONE = 0;//不随机播放
+    public static final int SHUFFLE_NORMAL = 1;//正常随机播放
+    public static final int SHUFFLE_AUTO = 2;//随机播放
+    public static final int REPEAT_NONE = 0;//不重复
+    public static final int REPEAT_CURRENT = 1;//重复当前
+    public static final int REPEAT_ALL = 2;//重复全部
     public static final int MAX_HISTORY_SIZE = 1000;
     private static final String TAG = "MusicPlaybackService";
     private static final boolean D = false;
@@ -150,7 +150,7 @@ public class MusicService extends Service {
     private static final String[] PROJECTION = new String[]{
             "audio._id AS _id", MediaStore.Audio.Media.ARTIST, MediaStore.Audio.Media.ALBUM,
             MediaStore.Audio.Media.TITLE, MediaStore.Audio.Media.DATA,
-            MediaStore.Audio.Media.MIME_TYPE, MediaStore.Audio.Media.ALBUM_ID,
+            MediaStore.Audio.Media.MIME_TYPE/**音频类型 */, MediaStore.Audio.Media.ALBUM_ID,
             MediaStore.Audio.Media.ARTIST_ID
     };
     private static final String[] ALBUM_PROJECTION = new String[]{
@@ -2320,6 +2320,9 @@ public class MusicService extends Service {
         }
     }
 
+    /**
+     * 洗牌者
+     */
     private static final class Shuffler {
 
         private final LinkedList<Integer> mHistoryOfNumbers = new LinkedList<Integer>();

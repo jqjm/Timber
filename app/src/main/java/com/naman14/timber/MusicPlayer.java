@@ -44,7 +44,7 @@ public class MusicPlayer {
     private static final WeakHashMap<Context, ServiceBinder> mConnectionMap;
     private static final long[] sEmptyList;
     public static ITimberService mService = null;
-    private static ContentValues[] mContentValuesCache = null;
+    private static ContentValues[] mContentValuesCache = null;//内容缓存值
 
     static {
         mConnectionMap = new WeakHashMap<Context, ServiceBinder>();
